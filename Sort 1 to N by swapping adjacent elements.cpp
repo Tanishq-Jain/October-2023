@@ -24,6 +24,10 @@ int main()
 {
 	int A[] = { 1, 2, 5, 3, 4, 6 };
 	bool B[] = { 0, 1, 1, 1, 0 };
-	int n = sizeof(A) / sizeof(A[0]);
+	int n = sizeof(A) / sizeof(A[0]);	
+	if (sortedAfterSwap(A, B, n))
+		cout << "A can be sorted\n";
+	else
+		cout << "A can not be sorted\n";
 	return 0;
 }
