@@ -1,18 +1,12 @@
-// C++ code for program
-// to cyclically rotate
-// an array by one
 # include <iostream>
 using namespace std;
 
 void rotate(int arr[], int n)
 {
 	int x = arr[n - 1], i;
-	for (i = n - 1; i > 0; i--)
 	arr[i] = arr[i - 1];
 	arr[0] = x;
 }
-
-// Driver code
 int main()
 {
 	int arr[] = {1, 2, 3, 4, 5}, i;
@@ -31,6 +25,3 @@ int main()
 
 	return 0;
 }
-
-// This code is contributed by jit_t
-
