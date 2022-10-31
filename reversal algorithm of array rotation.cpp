@@ -1,26 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void reverseArray(int arr[], int start, int end)
+int gcd(int a, int b)
 {
-	while (start < end) {
-		int temp = arr[start];
-		arr[start] = arr[end];
-		arr[end] = temp;
-		start++;
-		end--;
-	}
-}
+	if (b == 0)
+		return a;
 
+	else
+		return gcd(b, a % b);
+}
 void leftRotate(int arr[], int d, int n)
 {
-	if (d == 0)
-		return;
 	d = d % n;
+	int g_c_d = gcd(d, n);
+	for (int i = 0; i < g_c_d; i++) {
+		int temp = arr[i];
+		int j = i;
 
-	reverseArray(arr, 0, d - 1);
-	reverseArray(arr, d, n - 1);
-	reverseArray(arr, 0, n - 1);
+		while (1) {
+			int k = j + d;
+			if (k >= n)
+				k = k - n;
+
+			if (k == i)
+				break;
+
+			arr[j] = arr[k];
+			j = k;
+		}
+		arr[j] = temp;
+	}
 }
 void printArray(int arr[], int size)
 {
@@ -30,9 +39,9 @@ void printArray(int arr[], int size)
 int main()
 {
 	int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
-	int N = sizeof(arr) / sizeof(arr[0]);
-	int d = 2;
-	leftRotate(arr, d, N);
-	printArray(arr, N);
+	int n = sizeof(arr) / sizeof(arr[0]);
+	leftRotate(arr, 2, n);
+	printArray(arr, n);
+
 	return 0;
 }
