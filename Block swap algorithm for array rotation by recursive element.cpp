@@ -34,6 +34,15 @@ void leftRotate(int arr[], int d, int n)
 	}
 }
 
+void printArray(int arr[], int size)
+{
+	int i;
+	for(i = 0; i < size; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+
+
 void swap(int arr[], int fi, int si, int d)
 {
 	int i, temp;
@@ -53,6 +62,3 @@ int main()
 	printArray(arr, 7);
 	return 0;
 }
-
-
-
